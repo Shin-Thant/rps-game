@@ -1,0 +1,46 @@
+.gameContainer {
+    width: min(90%, 1000px);
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem;
+}
+
+.rules-btn {
+    width: max-content;
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    border: 2px solid var(--header_outline);
+    color: white;
+    font-size: 0.9rem;
+    font-family: "barlow_medium";
+    border-radius: 8px;
+    letter-spacing: 0.2em;
+    padding: 0.5rem 1.8rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1100px) {
+    .rules-btn {
+        position: relative;
+        top: 0;
+        left: 50%;
+        margin-bottom: 1rem;
+        display: block;
+        transform: translate(-50%);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .rules-btn {
+        margin-top: 5rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .gameContainer {
+        width: 100%;
+    }
+}

@@ -1,13 +1,72 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+    font-family: "barlow_regular";
+    src: url("./fonts/BarlowSemiCondensed-Regular.ttf");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "barlow_thin";
+    src: url("./fonts/BarlowSemiCondensed-Light.ttf");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "barlow_medium";
+    src: url("./fonts/BarlowSemiCondensed-Medium.ttf");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "barlow_semibold";
+    src: url("./fonts/BarlowSemiCondensed-SemiBold.ttf");
+    font-weight: 600;
+}
+@font-face {
+    font-family: "barlow_bold";
+    src: url("./fonts/BarlowSemiCondensed-Bold.ttf");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "barlow_extrabold";
+    src: url("./fonts/BarlowSemiCondensed-ExtraBold.ttf");
+    font-weight: 800;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    /* *primary */
+    --scissors_soft: hsl(39, 89%, 49%);
+    --scissors_dark: hsl(40, 100%, 36%);
+    --paper_soft: hsl(230, 89%, 62%);
+    --paper_dark: hsl(230, 81%, 54%);
+    --rock_soft: hsl(349, 70%, 56%);
+    --rock_dark: hsl(349, 75%, 49%);
+    --lizard_gradient: radial-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    --cyan: radial-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+
+    /* *neutral */
+    --dark_text: hsl(229, 25%, 31%);
+    --score_text: hsl(229, 64%, 46%);
+    --header_outline: hsl(217, 16%, 45%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: "barlow_regular";
+    background-image: radial-gradient(
+        farthest-corner at 50% 50px,
+        hsl(214, 47%, 23%),
+        hsl(237, 49%, 15%)
+    );
+    /* overflow: hidden; */
+}
+
+@media screen and (max-width: 1125px) {
+    body {
+        min-height: 110vh;
+        overflow: auto;
+    }
 }

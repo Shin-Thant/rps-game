@@ -1,0 +1,252 @@
+.game {
+    width: 100%;
+}
+
+.choices-box {
+    width: max-content;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.choices {
+    background-color: white;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-width: 22px;
+    border-style: solid;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.315);
+    transform: scale(1.2);
+    position: relative;
+}
+.choices.pending {
+    position: absolute;
+    cursor: pointer;
+    transform: scale(1);
+}
+.choices::after {
+    content: "";
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    position: absolute;
+    top: 0px;
+    left: -2px;
+    border-radius: 50%;
+    background-color: transparent;
+    pointer-events: none;
+    border-top: 9px solid hsla(217, 16%, 45%, 0.3);
+}
+.choices img {
+    width: 40%;
+    object-fit: cover;
+}
+
+.choices.paper {
+    border-color: var(--paper_soft);
+}
+.choices.paper.pending {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+.choices.scissors {
+    border-color: var(--scissors_soft);
+}
+.choices.scissors.pending {
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+.choices.rock {
+    border-color: var(--rock_soft);
+}
+.choices.rock.pending {
+    bottom: 0;
+}
+
+.choices.paper::before,
+.choices.scissors::before,
+.choices.rock::before {
+    content: "";
+    position: absolute;
+    bottom: -28px;
+    left: -22px;
+    width: calc(100% + 44px);
+    height: calc(100% + 44px);
+    border-radius: 50%;
+    background-color: transparent;
+    border-bottom: 9px solid;
+}
+.choices.paper::before {
+    border-color: var(--paper_dark);
+}
+.choices.scissors::before {
+    border-color: var(--scissors_dark);
+}
+.choices.rock::before {
+    border-color: var(--rock_dark);
+}
+
+/* * user has chosen */
+.chose {
+    width: 100%;
+    height: 55vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7rem;
+}
+
+.userChoice,
+.aiChoice {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.userChoice > h1,
+.aiChoice > h1 {
+    text-align: center;
+    font-family: "barlow_semibold";
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 4rem;
+    letter-spacing: 0.1em;
+}
+
+.loading {
+    width: 185px;
+    height: 185px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.438);
+    transform: scale(1.2);
+    animation: scaling 2s ease infinite alternate;
+}
+@keyframes scaling {
+    to {
+        transform: scale(0.8);
+    }
+}
+
+/* *result */
+.result {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.result > h1 {
+    color: white;
+    font-family: "barlow_bold";
+    font-size: 3rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.8rem;
+}
+.result .playAgain {
+    border: 0;
+    outline: 0;
+    padding: 0.9rem 3rem;
+    font-family: "barlow_semibold";
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: var(--rock_dark);
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+}
+
+@media screen and (max-width: 1000px) {
+    .choices,
+    .loading {
+        width: 160px;
+        height: 160px;
+        transform: scale(1);
+    }
+
+    .chose {
+        height: max-content;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, max-content);
+        row-gap: 3rem;
+        column-gap: 0;
+    }
+
+    .userChoice {
+        grid-column: 1 / 2;
+    }
+    .aiChoice {
+        grid-column: 2 / 3;
+    }
+
+    .result {
+        height: max-content;
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .chose {
+        row-gap: 4rem;
+    }
+
+    .userChoice,
+    .aiChoice {
+        flex-direction: column-reverse;
+    }
+    .userChoice > h1,
+    .aiChoice > h1 {
+        margin-bottom: 0;
+        margin-top: 2rem;
+    }
+
+    .result > h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .choices {
+        width: 150px;
+        height: 150px;
+    }
+
+    .userChoice > h1,
+    .aiChoice > h1 {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .choices {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .choices {
+        width: 120px;
+        height: 120px;
+    }
+
+    .choices-box {
+        width: 70%;
+    }
+
+    .choices-box .triangle {
+        width: 100%;
+    }
+
+    .choices.paper.pending {
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+}

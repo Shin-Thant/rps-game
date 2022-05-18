@@ -1,0 +1,65 @@
+.scoreboard {
+    width: min(100%, 800px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--header_outline);
+    padding: 1rem 1.2rem;
+    border-radius: 18px;
+}
+.scoreboard.addMargin {
+    margin-bottom: 9rem;
+}
+.scoreboard.noMargin {
+    margin-bottom: 5rem;
+}
+
+.score-result {
+    padding: 1rem 2.5rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.2);
+}
+.score-result h1 {
+    color: var(--score_text);
+    font-size: 0.95rem;
+    font-family: "barlow_medium";
+    letter-spacing: 0.13em;
+}
+.score-result .score {
+    font-size: 3.5rem;
+    font-family: "barlow_bold";
+    letter-spacing: normal;
+    color: var(--dark_text);
+    text-align: center;
+}
+
+@media screen and (max-width: 950px) {
+    .score-result {
+        padding: 0.8rem 1.8rem;
+    }
+    .score-result .score {
+        font-size: 2.8rem;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .score-result > h1 {
+        font-size: 0.9rem;
+    }
+
+    .score-result {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .score-result .score {
+        font-size: 2.3rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .score-result {
+        padding: 0.8rem 1.3rem;
+    }
+}
